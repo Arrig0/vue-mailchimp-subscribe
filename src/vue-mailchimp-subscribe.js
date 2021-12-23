@@ -48,7 +48,7 @@ export default {
         return
       }
       
-      this.$emit('starting')
+      this.$emit('start')
 
       this.success = false
       this.error = null
