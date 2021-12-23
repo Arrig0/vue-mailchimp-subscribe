@@ -75,7 +75,7 @@ export default {
         this.success = true
         this.email = null
         this.message = data.msg
-        this.$emit('success')
+        this.$emit('success', this.message, data, error)
       }
     },
 
