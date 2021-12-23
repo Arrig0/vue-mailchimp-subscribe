@@ -51,6 +51,7 @@ export default {
       this.success = false
       this.error = null
       this.loading = true
+      this.message = null
 
       const url = `${this.url}?${this.data}`
 
@@ -64,7 +65,7 @@ export default {
         this.error = error
       }
 
-      if (data && data.result === 'error') {
+      if (data && data.result !== 'success') {
         this.error = this.formatErrorMessage(data.msg)
       }
 
@@ -73,6 +74,7 @@ export default {
       } else {
         this.success = true
         this.email = null
+        this.message = data.msg
         this.$emit('success')
       }
     },
@@ -89,6 +91,7 @@ export default {
       error: this.error,
       success: this.success,
       loading: this.loading,
+      message: this.message
     })
   },
 }
