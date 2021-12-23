@@ -47,6 +47,8 @@ export default {
       if (this.email === null || this.loading) {
         return
       }
+      
+      this.$emit('starting')
 
       this.success = false
       this.error = null
@@ -75,7 +77,7 @@ export default {
         this.success = true
         this.email = null
         this.message = data.msg
-        this.$emit('success', this.message, data, error)
+        this.$emit('success', this.message)
       }
     },
 
